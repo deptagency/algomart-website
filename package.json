@@ -1,0 +1,24 @@
+{
+  "name": "algomart-one-sheet",
+  "version": "1.0.0",
+  "description": "Algomart one sheet",
+  "main": "index.html",
+  "scripts": {
+    "build:css": "tailwind build -i src/styles.css -o dist/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deptagency/algomart-one-sheet.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/deptagency/algomart-one-sheet/issues"
+  },
+  "homepage": "https://github.com/deptagency/algomart-one-sheet#readme",
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.5.0",
+    "tailwindcss": "^3.0.23"
+  }
+}
