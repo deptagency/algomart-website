@@ -1,0 +1,7 @@
+# this stupid mac thing
+.DS_store
+
+# directories
+.next
+node_modules
+dist
