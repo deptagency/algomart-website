@@ -1,13 +1,12 @@
 {
-  "name": "algomart-website-template",
+  "name": "algomart-website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build:css": "tailwind build -i src/styles.css -o dist/styles.css",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
   },
   "dependencies": {
     "@headlessui/react": "^1.5.0",
