@@ -271,6 +271,7 @@ export default function HomePage() {
                 <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">
                   Algomart is a fully-baked solution that allows you to have a completely functional NFT marketplace as your jumping off point. Get your MVP launched today, and iterate as you experiment with NFTs and the value it can bring your customers.
                 </p>
+                <p className="mx-auto mt-5 text-xl text-gray-500 max-w-prose">You can try out the demo <a className="text-indigo-600" href="https://demo.algomart.dev/" target="_blank" rel="noopener noreferrer">here</a></p>
               </div>
               <div className="mt-12">
                 <img
@@ -402,7 +403,19 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <ul role="list" className="mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-5 lg:max-w-7xl">
+              <ul role="list" className="mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:3 lg:max-w-7xl">
+              <li className="relative">
+                  <a
+                    href="https://www.youtube.com/watch?v=qFibWdzgSAE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full overflow-hidden bg-gray-100 rounded-lg group aspect-w-10 aspect-h-7 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500"
+                  >
+                    <img src="https://i.ytimg.com/vi_webp/qFibWdzgSAE/sddefault.webp" alt="" className="object-cover pointer-events-none group-hover:opacity-75" />
+                    <span className="sr-only">Developer Office Hours | AlgoMart</span>
+                  </a>
+                  <p className="block text-lg font-medium text-gray-900 pointer-events-none">Developer Office Hours | AlgoMart</p>
+                </li>
                 <li className="relative">
                   <a
                     href="https://www.youtube.com/watch?v=aETlcu7PTr4"
