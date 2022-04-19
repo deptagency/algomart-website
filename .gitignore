@@ -1,3 +1,6 @@
+# locking out lockfiles
+yarn.lock
+
 # this stupid mac thing
 .DS_store
 
