@@ -1,6 +1,7 @@
-import { Fragment } from "react"
-import { Popover, Transition } from "@headlessui/react"
+import { Fragment, useState } from "react"
+import { Disclosure, Menu, Popover, Transition } from "@headlessui/react"
 import {
+  BellIcon,
   CloudUploadIcon,
   CreditCardIcon,
   CodeIcon,
@@ -115,51 +116,64 @@ const social = [{
   )
 }]
 
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
+
 export default function HomePage() {
   return (
     <div className="bg-white">
-      <div className="relative overflow-hidden">
-        <Popover as="header" className="relative">
-          <div className="bg-gray-900 pt-6">
-            <nav
-              className="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6"
-              aria-label="Global"
-            >
-              <div className="flex items-center flex-1">
-                <div className="flex items-center justify-between w-full md:w-auto">
-                  <a href="https://github.com/deptagency/algomart">
-                    <span className="sr-only">Algomart</span>
-                    <img
-                      className="h-8 w-auto sm:h-10"
-                      src="/algomart-logo.svg"
-                      alt=""
-                    />
-                  </a>
-                  <div className="-mr-2 flex items-center md:hidden">
-                    <Popover.Button className="bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white">
-                      <span className="sr-only">Open main menu</span>
-                      <MenuIcon className="h-6 w-6" aria-hidden="true" />
-                    </Popover.Button>
+      <Disclosure as="nav" className="bg-gray-900">
+        {({ isMobileMenuOpen }) => (
+          <>
+            <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+              <div className="relative flex items-center justify-between h-16">
+                <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                  {/* Mobile menu button*/}
+                  <Disclosure.Button
+                    className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                    <span className="sr-only">Open main menu</span>
+                    {isMobileMenuOpen ? (
+                      <XIcon className="block h-6 w-6" aria-hidden="true" />
+                    ) : (
+                      <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                    )}
+                  </Disclosure.Button>
+                </div>
+                <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                  <div className="flex-shrink-0 flex items-center">
+                    <a href="https://github.com/deptagency/algomart" target="_blank" rel="noopener noreferrer">
+                      <span className="sr-only">Algomart</span>
+                      <img
+                        className="h-8 w-auto sm:h-10"
+                        src="/algomart-logo.svg"
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                  <div className="hidden sm:block sm:ml-6">
+                    <div className="flex space-x-4">
+                      {navigation.map((item) => (
+                        <a
+                          key={item.name}
+                          href={item.href}
+                          className={classNames(
+                            item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                            'px-3 py-2 rounded-md text-sm font-medium'
+                          )}
+                          aria-current={item.current ? 'page' : undefined}
+                        >
+                          {item.name}
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
-                <div className="hidden space-x-8 md:flex md:ml-10">
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="text-base font-medium text-white hover:text-gray-300"
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
-              <div className="hidden md:flex md:items-center md:space-x-6">
                 <a
                   href="https://github.com/deptagency/algomart"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-4 py-1 text-base font-medium text-white bg-indigo-600 rounded-md"
+                  className="hidden md:inline-flex items-center px-4 py-1 text-base font-medium text-white bg-indigo-600 rounded-md"
                 >
                   Get Started
                   <img
@@ -169,72 +183,32 @@ export default function HomePage() {
                   />
                 </a>
               </div>
-            </nav>
-          </div>
+            </div>
 
-          <Transition
-            as={Fragment}
-            enter="duration-150 ease-out"
-            enterFrom="opacity-0 scale-95"
-            enterTo="opacity-100 scale-100"
-            leave="duration-100 ease-in"
-            leaveFrom="opacity-100 scale-100"
-            leaveTo="opacity-0 scale-95"
-          >
-            <Popover.Panel
-              focus
-              className="absolute top-0 inset-x-0 p-2 transition transform origin-top md:hidden"
-            >
-              <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
-                <div className="px-5 pt-4 flex items-center justify-between">
-                  <div>
-                    <img
-                      className="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/workflow-mark-teal-500-cyan-600.svg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="-mr-2">
-                    <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600">
-                      <span className="sr-only">Close menu</span>
-                      <XIcon className="h-6 w-6" aria-hidden="true" />
-                    </Popover.Button>
-                  </div>
-                </div>
-                <div className="pt-5 pb-6">
-                  <div className="px-2 space-y-1">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
-                      >
-                        {item.name}
-                      </a>
-                    ))}
-                  </div>
-                  <div className="mt-6 px-5">
-                    <a
-                      href="#"
-                      className="block text-center w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-medium hover:from-blue-600 hover:to-indigo-700"
-                    >
-                      Start free trial
-                    </a>
-                  </div>
-                  <div className="mt-6 px-5">
-                    <p className="text-center text-base font-medium text-gray-500">
-                      Existing customer?{" "}
-                      <a href="#" className="text-gray-900 hover:underline">
-                        Login
-                      </a>
-                    </p>
-                  </div>
-                </div>
+            <Disclosure.Panel>
+              <div className="px-2 pt-2 pb-3 space-y-1">
+                {navigation.map((item) => (
+                  <Disclosure.Button
+                    key={item.name}
+                    as="a"
+                    href={item.href}
+                    className={classNames(
+                      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                      'block px-3 py-2 rounded-md text-base font-medium'
+                    )}
+                    aria-current={item.current ? 'page' : undefined}
+                  >
+                    {item.name}
+                  </Disclosure.Button>
+                ))}
               </div>
-            </Popover.Panel>
-          </Transition>
-        </Popover>
-        <main>
+            </Disclosure.Panel>
+          </>
+        )}
+      </Disclosure>
+
+      <div className="relative overflow-hidden">
+        <main className="">
           <div className="pt-10 bg-gray-900 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
             <div className="mx-auto max-w-7xl lg:px-8">
               <div className="lg:grid lg:grid-cols-2 lg:gap-8">
@@ -316,7 +290,7 @@ export default function HomePage() {
                   aria-hidden="true"
                   className="absolute inset-x-0 top-0 h-1/2 bg-white lg:hidden"
                 />
-                <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full">
+                <div className="hidden md:block mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full">
                   <div className="aspect-w-10 aspect-h-6 rounded-xl shadow-xl overflow-hidden sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none lg:h-full">
                     <img
                       className="object-cover lg:h-full lg:w-full"
@@ -327,7 +301,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="mt-12 lg:m-0 lg:col-span-2 lg:pl-8">
+              <div className="mt-12 lg:m-0 lg:col-span-2 lg:pl-8 pt-4 md:pt-0">
                 <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:px-0 lg:py-20 lg:max-w-none">
                   <blockquote>
                     <p className="mt-6 text-2xl font-medium text-white">
@@ -581,7 +555,7 @@ export default function HomePage() {
                 {caseStudies.map((study) => (
                   <a
                     href={study.href}
-                    key={study.id}
+                    key={study.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block flex flex-col rounded-lg shadow-lg overflow-hidden"
@@ -655,11 +629,12 @@ export default function HomePage() {
             </div>
           </div>
         </main>
+
         <footer className="bg-gray-50" aria-labelledby="footer-heading">
           <h2 id="footer-heading" className="sr-only">
             Footer
           </h2>
-          <div className="max-w mx-auto border-t border-gray-200 grid grid-cols-2 p-8 mt-12">
+          <div className="max-w mx-auto border-t border-gray-200 grid grid-cols-2 p-8">
             <div className="flex space-x-6">
               {social.map((item) => (
                 <a
