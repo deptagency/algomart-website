@@ -5,3 +5,6 @@
 .next
 node_modules
 dist
+
+# used for digital ocean static build
+_static
