@@ -403,7 +403,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <ul role="list" className="mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:3 lg:max-w-7xl">
+              <ul role="list" className="mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl">
               <li className="relative">
                   <a
                     href="https://www.youtube.com/watch?v=qFibWdzgSAE"
