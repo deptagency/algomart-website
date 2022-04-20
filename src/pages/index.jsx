@@ -271,7 +271,7 @@ export default function HomePage() {
                 <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">
                   Algomart is a fully-baked solution that allows you to have a completely functional NFT marketplace as your jumping off point. Get your MVP launched today, and iterate as you experiment with NFTs and the value it can bring your customers.
                 </p>
-                <p className="mx-auto mt-5 text-xl text-gray-500 max-w-prose">You can try out the demo <a className="text-indigo-600" href="https://demo.algomart.dev/" target="_blank" rel="noopener noreferrer">here</a></p>
+                <p className="mx-auto mt-5 text-xl text-gray-500 max-w-prose">You can try out the demo <a className="text-indigo-600" href="https://demo.algomart.dev/" target="_blank" rel="noopener noreferrer">here.</a></p>
               </div>
               <div className="mt-12">
                 <img
