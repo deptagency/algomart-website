@@ -1,34 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This projects was built with NextJS and Tailwind, intended to be served as a static site.
 
-## Getting Started
+# Development Stuff
+_Note: with something as simple as this but with modern tools, it's all too easy to over-engineer the solution. Godspeed!_
 
-First, run the development server:
+Those modern tools are:
+1. NextJS
+2. Tailwind (and Heroicons)
+3. Git-based deployments
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+The landing page is in `src/pages/index.js` and just uses that Tailwind markup directly in the JSX: no need for CSS modules here, it's literally just a homepage.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Like all NextJS projects, just use `npm run dev` to get going, but I recommend doing a `npm run build` to test for all errors/warnings before Vercel tells you anyway.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### YouTube Videos
+The thumbnails are pulled directly from YouTube using the video ID in the URL for the image source. The videos live in the [Rocket Insights YouTube account](https://www.youtube.com/channel/UClRUfLgiwqRdjX6f9mGyWzw/videos), so you'll need access to that if you want to change the thumbnails to be better than the default choices.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# Deployment Stuff
 
-## Learn More
+### Opening a PR
+When you open a pull request it should default to compare against the `develop` branch (ie staging). When the PR gets opened, Vercel will give you a dedicated preview environment for your changes.
 
-To learn more about Next.js, take a look at the following resources:
+### Updating Production
+The easiest and most predictable method is to simply open a pull request that compares `develop` to `main` and when that merges, it's live.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### DNS Info
+DNS is managed via [DNSimple](https://dnsimple.com/), and the site is currently hosted via Vercel:
+- Prod: https://algomart.dev
+- Staging: https://staging.algomart.dev
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+_Note: there's an extra `export` script in the package.json file to help build a static site destined for DigitalOcean._
