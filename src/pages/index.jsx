@@ -12,6 +12,7 @@ import {
   XIcon,
 } from "@heroicons/react/outline"
 import { ChevronRightIcon, ExternalLinkIcon } from "@heroicons/react/solid"
+import Head from 'next/head';
 
 const navigation = [
   { name: "Overview", href: "#overview" },
@@ -123,6 +124,9 @@ function classNames(...classes) {
 export default function HomePage() {
   return (
     <div className="bg-white">
+      <Head>
+        <title>Algomart NFT Marketplace</title>
+      </Head>
       <Disclosure as="nav" className="bg-gray-900 sticky top-0 z-50">
         {({ isMobileMenuOpen }) => (
           <>
